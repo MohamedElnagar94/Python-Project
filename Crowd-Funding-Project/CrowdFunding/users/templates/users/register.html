@@ -1,0 +1,101 @@
+{% extends  "Home/Includes/base.html" %}
+
+<!-- the title of page -->
+{% block title %}Register{% endblock %}
+
+{% block auth %}
+    {% if user_id %}
+    <li class=""><a href="{% url 'logout' %}">Logout</a></li>
+    <li class=""><a href="/profile/{{user_id}}">Profile</a></li>
+    {% else %}
+    <li class=""><a href="{% url 'login' %}">Login</a></li>
+    <li class="current-menu-item"><a href="{% url 'register' %}">Register</a></li>
+    {% endif %}
+{% endblock %}
+
+<!-- the contain of body -->
+{% block contain %}
+<!--  this slider for any page only without index  -->
+<!--
+    there is three variables
+    1- image_slide_name     >>>> this is will be the name of image and the url of image is ( Images/temp/ )
+    2- page_title_slide     >>>> this is will be the title of the slide
+    3- page_subtitle_slide  >>>> this is will be ths subtitle of slide
+ -->
+{% include  "Home/Includes/singleSlide.html" with image_slide_name='slide-9.jpg' page_title_slide='Register' page_subtitle_slide='what do you think about me ?' %}
+
+<div class="container text-center">
+
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 mt-5">
+            <div class="register" style="margin: 0;margin-bottom: 150px;">
+                {% if messages%}
+                {% for message in messages %}
+                <div class="alert alert-danger"> {{message}}</div>
+                {% endfor %}
+                {% endif %}
+                <h3 class="border-bottom mb-3"> Register </h3>
+
+                <form method="POST" enctype="multipart/form-data">
+                    {%csrf_token%}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">User Name</label>
+                        <input type="text" class="form-control" name="username" id="id_username"
+                               aria-describedby="emailHelp" placeholder="user name">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" class="form-control" name="first_name" id="id_first_name"
+                               aria-describedby="emailHelp" placeholder="first name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" class="form-control" name="last_name" id="id_last_name"
+                               aria-describedby="emailHelp" placeholder="last name">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" id="id_email" aria-describedby="emailHelp"
+                               placeholder="email">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="number" class="form-control" name="phone" id="id_phone"
+                               aria-describedby="emailHelp" placeholder="Phone Number">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="picture">choose your Picture</label>
+                        <input type="file" class="form-control" name="picture" id="id_pic" aria-describedby="emailHelp">
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input required min="8" type="password" name="password" class="form-control" id="id_password"
+                               placeholder="password">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password_confirm">Password confirm</label>
+                        <input required min="8" type="password" name="password2" class="form-control" id="id_password2"
+                               placeholder="password">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+                <small> if you have not account you can register from here<a href="{% url 'login' %}">login</a></small>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

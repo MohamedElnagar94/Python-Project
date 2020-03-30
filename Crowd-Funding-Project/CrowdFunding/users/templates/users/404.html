@@ -1,0 +1,47 @@
+{% extends  "Home/Includes/base.html" %}
+
+<!-- the title of page -->
+{% block title %}Projects{% endblock %}
+
+{% block auth %}
+    {% if user_id %}
+    <li class=""><a href="{% url 'logout' %}">Logout</a></li>
+    <li class=""><a href="/profile/{{user_id}}">Profile</a></li>
+    {% else %}
+    <li class=""><a href="{% url 'login' %}">Login</a></li>
+    <li class=""><a href="{% url 'register' %}">Register</a></li>
+    {% endif %}
+{% endblock %}
+
+<!-- the contain of body -->
+{% block contain %}
+<!--  this slider for any page only without index  -->
+<!--
+    there is three variables
+    1- image_slide_name     >>>> this is will be the name of image and the url of image is ( Images/temp/ )
+    2- page_title_slide     >>>> this is will be the title of the slide
+    3- page_subtitle_slide  >>>> this is will be ths subtitle of slide
+ -->
+{% include  "Home/Includes/singleSlide.html" with image_slide_name='slide-9.jpg' page_title_slide='Error Page' page_subtitle_slide='404'%}
+
+<!--  here will be your section ( here )  -->
+<div class="page-wrapper page-sidebar">
+    <!-- TODO: additional classes are: .page-sidebar, .page-sidebar-left, .page-narrow -->
+    <div class="container">
+        <div class="row">
+            <!-- Content -->
+            <main itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/WebPageElement" class="content">
+                <h2>Page Not Found</h2>
+                <p>Sorry, we can't find the page You are looking for. Please, try a search or go to <a
+                        href="/">homepage</a>.</p>
+
+
+            </main>
+            <!--/ Content -->
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

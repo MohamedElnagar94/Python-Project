@@ -1,0 +1,50 @@
+<!-- Header -->
+<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+	<!-- Navigation Bar -->
+	<nav class="navigation-bar" data-become-sticky="600" data-no-placeholder>
+		<div class="container">
+			<div class="hamburger"><a href="#"></a></div>
+
+			<div class="navigation-bar-flex">
+				<!-- Logo TODO: Use 2 images for normal and sticky navigation, or just text -->
+				<div class="logo">
+					<a href="/">
+						<!--<img class="logo-normal" src="images/logo-x2.png" alt=""/>
+						<img class="logo-sticky" src="images/logo-sticky-x2.png" alt=""/>-->
+						Crowd<span>Funding</span>
+					</a>
+				</div>
+				<!--/ Logo -->
+
+				<!-- Dropdown Menu -->
+				<ul class="nav-menu clearfix" itemscope itemtype="http://schema.org/SiteNavigationElement">
+					<li class="{{index}}">
+						<a href="/">Home</a>
+					</li>
+					<li class="{{project}}">
+						<a href="/projects">Projects</a>
+					</li>
+<!--					<li><a href="/about.html">About</a></li>-->
+<!--					<li><a href="/contact.html">Contact</a></li>-->
+
+					<li class="{{logout}}"><a href="{% url 'logout' %}">Logout</a></li>
+					<li class="{{profile}}"><a href="/profile/{{user_id}}">Profile</a></li>
+
+					<li class="{{login}}"><a href="{% url 'login' %}">Login</a></li>
+					<li class="{{register}}"><a href="{% url 'register' %}">Register</a></li>
+
+				</ul>
+				<!--/ Dropdown Menu -->          
+
+				<!-- Search Form -->
+				<form action="/projects_search/" class="form-search-header" method="get">
+					<input type="search" name="project_title" class="form-control" placeholder="search for something" required />
+					<button type="submit" class="form-submit material-icons">search</button>
+				</form>
+				<!--/ Search Form -->
+			</div>
+		</div>
+	</nav>
+	<!--/ Navigation Bar -->
+</header>
+<!--/ Header -->

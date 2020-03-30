@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js page-loader-overflow-hidden">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>{% block title %} default {% endblock %}</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+    {% include  "Home/Includes/header.html" %}
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+<!-- Google Tag Manager (noscript) -->
+<!--<noscript>-->
+<!--    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPWGNL" height="0" width="0" style="display:none;visibility:hidden"></iframe>-->
+<!--</noscript>-->
+<!-- End Google Tag Manager -->
+
+<!-- Page Loader -->
+<div class="page-loader">
+	<div class="preloader-wheel active">
+		<div class="spinner-layer">
+			<div class="circle-clipper left">
+				<div class="circle"></div>
+			</div><!--
+            --><div class="gap-patch">
+				<div class="circle"></div>
+			</div><!--
+            --><div class="circle-clipper right">
+				<div class="circle"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--/ Page Loader -->
+<!-- Header -->
+<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+	<!-- Navigation Bar -->
+	<nav class="navigation-bar" data-become-sticky="600" data-no-placeholder>
+		<div class="container">
+			<div class="hamburger"><a href="#"></a></div>
+
+			<div class="navigation-bar-flex">
+				<!-- Logo TODO: Use 2 images for normal and sticky navigation, or just text -->
+				<div class="logo">
+					<a href="/">
+						<!--<img class="logo-normal" src="images/logo-x2.png" alt=""/>
+						<img class="logo-sticky" src="images/logo-sticky-x2.png" alt=""/>-->
+						Crowd<span>Funding</span>
+					</a>
+				</div>
+				<!--/ Logo -->
+
+				<!-- Dropdown Menu -->
+				<ul class="nav-menu clearfix" itemscope itemtype="http://schema.org/SiteNavigationElement">
+					<li class="{% block index %} {% endblock %}">
+						<a href="/">Home</a>
+					</li>
+					<li class="{% block project %} {% endblock %}">
+						<a href="/projects">Projects</a>
+					</li>
+<!--					<li><a href="/about.html">About</a></li>-->
+<!--					<li><a href="/contact.html">Contact</a></li>-->
+					{% block auth %} {% endblock %}
+
+
+				</ul>
+				<!--/ Dropdown Menu -->
+
+				<!-- Search Form -->
+				<form action="/projects_search/" class="form-search-header" method="get">
+					<input type="search" name="project_title" class="form-control" placeholder="search for something" required />
+					<button type="submit" class="form-submit material-icons">search</button>
+				</form>
+				<!--/ Search Form -->
+			</div>
+		</div>
+	</nav>
+	<!--/ Navigation Bar -->
+</header>
+<!--/ Header -->
+{% block navbar %} {% endblock %}
+{% block contain %} {% endblock %}
+{% include  "Home/Includes/footer.html" %}
+{% include  "Home/Includes/jsfooter.html" %}
+
+
